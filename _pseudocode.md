@@ -8,3 +8,7 @@ last name (adj + noun) OR (old english name) OR (old german name)
 short male names (generic, old english, german)
 short female names (generic, old english, german)
 short gender-neutral names (generic, old english, german)
+
+
+STRETCH
+add sliders to determine likelihood of different species
