@@ -241,6 +241,28 @@ export const charJob = [
   'winemaker'
 ]
 
+export const monsters = [
+  'a necromancer',
+  'bandits',
+  'cultists',
+  'goblins',
+  'kobolds',
+  'lizard people',
+  'orcs',
+  'undead'
+];
+
+export const locations = [
+  "caves",
+  "dungeon",
+  "forest",
+  "local bigwig's house",
+  "old church",
+  "ruined castle",
+  "ruined temple",
+  "sewers",
+];
+
 export const charSecret = [
   'an assassin sent after the party',
   'an assassin targeting an important NPC',
@@ -270,26 +292,4 @@ export const rumors = [
   `the blacksmith hates elves`,
   `the ${wordPicker(charJob, 1)} sells magic items looted from the bodies of dead adventurers`,
   `a local shopkeep will buy and sell stolen goods`,
-];
-
-export const monsters = [
-  'a necromancer',
-  'bandits',
-  'cultists',
-  'goblins',
-  'kobolds',
-  'lizard people',
-  'orcs',
-  'undead'
-];
-
-export const locations = [
-  "caves",
-  "dungeon",
-  "forest",
-  "local bigwig's house",
-  "old church",
-  "ruined castle",
-  "ruined temple",
-  "sewers",
 ];

@@ -1,6 +1,6 @@
 
 
-export default function wordPicker(inputArray, num) {
+export function wordPicker(inputArray, num) {
   if (num === 1) return inputArray[Math.floor(Math.random() * inputArray.length)];
 
   let newArray = [...inputArray];

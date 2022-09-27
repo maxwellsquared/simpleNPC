@@ -1,6 +1,9 @@
 import React, { useState, useRef } from 'react';
 import './App.css';
 
+import { maleNames, femaleNames, nbNames, lastNames, desc1, species, charJob } from "./helpers/arrays";
+import { wordPicker } from './helpers/wordPicker';
+
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
@@ -30,11 +33,11 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>My Neat Chatroom</h1>
-        <SignOut />
+        <h1>simpleNPC</h1>
       </header>
       <section>
-        {user ? <ChatRoom /> : <SignIn />}
+        {user ? <SignOut /> : <SignIn />}
+        <p>{wordPicker(maleNames, 1)} {wordPicker(lastNames, 1)} is a {wordPicker(desc1, 1)} {wordPicker(species, 1)} {wordPicker(charJob, 1)}.</p>
       </section>
     </div>
   );
@@ -47,13 +50,13 @@ function SignIn() {
   }
 
   return (
-    <button className="sign-in" onClick={signInWithGoogle}>SIGN IN HERE</button>
+    <button className="sign-in" onClick={signInWithGoogle}>SIGN IN</button>
   )
 }
 
 function SignOut() {
   return auth.currentUser && (
-    <button className="sign-out" onClick={() => auth.signOut()}>BYEBYE!</button>
+    <button className="sign-out" onClick={() => auth.signOut()}>SIGN OUT</button>
   )
 }
 
