@@ -27,6 +27,7 @@ firebase.initializeApp({
 
 const createThing = document.getElementById('createThing');
 const thingsList = document.getElementById('thingsList');
+const userDetails = document.getElementById('userDetails');
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
@@ -41,6 +42,7 @@ auth.onAuthStateChanged(user => {
 
     //db reference
     thingsRef = firestore.collection('things');
+    // userDetails.innerHTML = `<h3>Hello ${user.displayName}!</h3> <p>User ID: ${user.uid}</p>`;
 
     createThing.onclick = () => {
       const { serverTimestamp } = firebase.firestore.FieldValue;
@@ -52,6 +54,22 @@ auth.onAuthStateChanged(user => {
       });
     }
 
+    // query
+    unsubscribe = thingsRef.where('uid', '==', user.uid).onSnapshot(querySnapshot => {
+
+        const items = querySnapshot.docs.map(doc => {
+          return `<li>${doc.data().name}</li>`
+        });
+
+        thingsList.innerHTML = items.join('');
+
+      })
+
+
+
+
+  } else {
+    unsubscribe && unsubscribe();
   }
 
 });
@@ -66,11 +84,12 @@ function App() {
       </header>
       <section>
         {user ? <SignOut /> : <SignIn />}
+        
         <p>{wordPicker(maleNames, 1)} {wordPicker(lastNames, 1)} is a {wordPicker(desc1, 1)} {wordPicker(species, 1)} {wordPicker(charJob, 1)}.</p>
-      </section>
-      <section>
+
           <h2>Firestore Stuff</h2>
           <ul id="thingsList"></ul>
+          {/* <div id="userDetails"></div> */}
           <button id="createThing">Create a Thing</button>
         </section>
     </div>
@@ -94,57 +113,5 @@ function SignOut() {
   )
 }
 
-function ChatRoom() {
-
-  const dummy = useRef();
-  const messagesRef = firestore.collection('messages');
-  const query = messagesRef.orderBy('createdAt').limit(25);
-
-  const [messages] = useCollectionData(query, { idField: 'id' });
-  const [formValue, setFormValue] = useState('');
-
-  const sendMessage = async (event) => {
-    event.preventDefault();
-    const { uid } = auth.currentUser;
-
-    await messagesRef.add({
-      text: formValue,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      uid
-    })
-
-    setFormValue('');
-
-    dummy.current.scrollIntoView({ behavior: 'smooth' })
-
-  }
-
-  return (
-    <>
-      <main>
-        {messages && messages.map(message => <ChatMessage key={message.id} message={message} />)}
-
-        <div ref={dummy}></div>
-      </main>
-
-      <form onSubmit={sendMessage}>
-        <input value={formValue} onChange={(event) => setFormValue(event.target.value)} />
-        <button type="submit">SEND</button>
-      </form>
-    </>
-  )
-}
-
-function ChatMessage(props) {
-  const { text, uid } = props.message;
-
-  const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
-
-  return (
-    <div className={`message ${messageClass}`} >
-      <p>{text}</p>
-    </div>
-  )
-}
 
 export default App;
