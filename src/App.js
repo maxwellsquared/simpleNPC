@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import {faker } from '@faker-js/faker';
 import './App.css';
 
 import { maleNames, femaleNames, nbNames, lastNames, desc1, species, charJob } from "./helpers/arrays";
@@ -12,6 +13,7 @@ import 'firebase/compat/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { FacebookAuthProvider } from 'firebase/auth';
 
 firebase.initializeApp({
   apiKey: "AIzaSyDlyuCM5wTtP2_5PPSCbluqM119CjIpUJg",
@@ -23,9 +25,36 @@ firebase.initializeApp({
   measurementId: "G-57YR4FLDNZ"
 })
 
+const createThing = document.getElementById('createThing');
+const thingsList = document.getElementById('thingsList');
+
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 const analytics = firebase.analytics();
+
+let thingsRef;
+let unsubscribe;
+
+auth.onAuthStateChanged(user => {
+
+  if (user) {
+
+    //db reference
+    thingsRef = firestore.collection('things');
+
+    createThing.onclick = () => {
+      const { serverTimestamp } = firebase.firestore.FieldValue;
+
+      thingsRef.add({
+        uid: user.uid,
+        name: faker.commerce.productName(),
+        createdAt: serverTimestamp()
+      });
+    }
+
+  }
+
+});
 
 
 function App() {
@@ -39,6 +68,11 @@ function App() {
         {user ? <SignOut /> : <SignIn />}
         <p>{wordPicker(maleNames, 1)} {wordPicker(lastNames, 1)} is a {wordPicker(desc1, 1)} {wordPicker(species, 1)} {wordPicker(charJob, 1)}.</p>
       </section>
+      <section>
+          <h2>Firestore Stuff</h2>
+          <ul id="thingsList"></ul>
+          <button id="createThing">Create a Thing</button>
+        </section>
     </div>
   );
 }
@@ -91,11 +125,6 @@ function ChatRoom() {
         {messages && messages.map(message => <ChatMessage key={message.id} message={message} />)}
 
         <div ref={dummy}></div>
-        <section>
-          <h2>Firestore Stuff</h2>
-          <ul id="thingsList"></ul>
-          <button id="createThing">Create a Thing</button>
-        </section>
       </main>
 
       <form onSubmit={sendMessage}>
