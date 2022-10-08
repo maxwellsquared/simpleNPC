@@ -3,6 +3,7 @@ import {faker } from '@faker-js/faker';
 import './App.css';
 
 import { maleNames, femaleNames, nbNames, lastNames, desc1, species, charJob } from "./helpers/arrays";
+import { StatBlock } from "./components/StatBlock";
 import { wordPicker } from './helpers/wordPicker';
 
 import firebase from 'firebase/compat/app';
@@ -25,36 +26,8 @@ firebase.initializeApp({
   measurementId: "G-57YR4FLDNZ"
 })
 
-const createThing = document.getElementById('createThing');
-const thingsList = document.getElementById('thingsList');
-
 const auth = firebase.auth();
 const firestore = firebase.firestore();
-const analytics = firebase.analytics();
-
-let thingsRef;
-let unsubscribe;
-
-auth.onAuthStateChanged(user => {
-
-  if (user) {
-
-    //db reference
-    thingsRef = firestore.collection('things');
-
-    createThing.onclick = () => {
-      const { serverTimestamp } = firebase.firestore.FieldValue;
-
-      thingsRef.add({
-        uid: user.uid,
-        name: faker.commerce.productName(),
-        createdAt: serverTimestamp()
-      });
-    }
-
-  }
-
-});
 
 
 function App() {
@@ -65,13 +38,8 @@ function App() {
         <h1>simpleNPC</h1>
       </header>
       <section>
-        {user ? <SignOut /> : <SignIn />}
         <p>{wordPicker(maleNames, 1)} {wordPicker(lastNames, 1)} is a {wordPicker(desc1, 1)} {wordPicker(species, 1)} {wordPicker(charJob, 1)}.</p>
-      </section>
-      <section>
-          <h2>Firestore Stuff</h2>
-          <ul id="thingsList"></ul>
-          <button id="createThing">Create a Thing</button>
+        <StatBlock />
         </section>
     </div>
   );
