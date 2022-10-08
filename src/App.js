@@ -91,6 +91,11 @@ function ChatRoom() {
         {messages && messages.map(message => <ChatMessage key={message.id} message={message} />)}
 
         <div ref={dummy}></div>
+        <section>
+          <h2>Firestore Stuff</h2>
+          <ul id="thingsList"></ul>
+          <button id="createThing">Create a Thing</button>
+        </section>
       </main>
 
       <form onSubmit={sendMessage}>
