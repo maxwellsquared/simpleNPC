@@ -3,7 +3,7 @@ import {faker } from '@faker-js/faker';
 import './App.css';
 
 import { StatBlock } from "./components/StatBlock";
-import { Portrait } from './components/Portrait';
+// import { Portrait } from './components/Portrait';
 
 import { wordPicker } from './helpers/wordPicker';
 import { maleNames, femaleNames, nbNames, lastNames, desc1, species, charJob } from "./helpers/arrays";
