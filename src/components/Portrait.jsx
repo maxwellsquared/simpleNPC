@@ -10,9 +10,6 @@ import { Configuration, OpenAIApi } from 'openai';
 
     const openai = new OpenAIApi(configuration);
     
-    
-    
-    
 export function Portrait(props) {
         const [picURL, setPicURL] = useState('');
         const [error, setError] = useState(false);
@@ -52,7 +49,6 @@ export function Portrait(props) {
             ) : (
                 <img src={picURL} />
             )}
-            <img src="./logo192.png" />
         </div>
     )
 }
