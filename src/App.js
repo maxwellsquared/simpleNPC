@@ -2,16 +2,17 @@ import React, { useState, useRef } from 'react';
 import {faker } from '@faker-js/faker';
 import './App.css';
 
-import { maleNames, femaleNames, nbNames, lastNames, desc1, species, charJob } from "./helpers/arrays";
 import { StatBlock } from "./components/StatBlock";
-import { wordPicker } from './helpers/wordPicker';
+import { Portrait } from './components/Portrait';
 
+import { wordPicker } from './helpers/wordPicker';
+import { maleNames, femaleNames, nbNames, lastNames, desc1, species, charJob } from "./helpers/arrays";
+
+// FIREBASE STUFF
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 import 'firebase/compat/analytics';
-
-
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { FacebookAuthProvider } from 'firebase/auth';
@@ -29,15 +30,16 @@ firebase.initializeApp({
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
-
 function App() {
   const [user] = useAuthState(auth);
+  
   return (
     <div className="App">
       <header>
         <h1>simpleNPC</h1>
       </header>
       <section>
+        <Portrait />
         <p>{wordPicker(maleNames, 1)} {wordPicker(lastNames, 1)} is a {wordPicker(desc1, 1)} {wordPicker(species, 1)} {wordPicker(charJob, 1)}.</p>
         <StatBlock />
         </section>
