@@ -5,7 +5,7 @@ import { Configuration, OpenAIApi } from 'openai';
     // response.data.data[0].url;
 
     const configuration = new Configuration({
-        apiKey: process.env.OPENAI_API_KEY,
+        apiKey: process.env.REACT_APP_OPENAI_API_KEY,
     });
 
     const openai = new OpenAIApi(configuration);
@@ -20,7 +20,7 @@ export function Portrait(props) {
             setState('loading');
             try {
                 const res = await openai.createImage({
-                    prompt: "a fantasy oil painting portrait of a medieval knight with an axe",
+                    prompt: "a fantasy oil painting portrait of a cat in knight armor",
                     n: 1,
                     size: "512x512",
                 });
@@ -47,7 +47,7 @@ export function Portrait(props) {
             { state === 'loading' ? (
              <h1>Loading...</h1>   
             ) : (
-                <img src={picURL} />
+                <img src={picURL} alt="Portrait of fantasy NPC" />
             )}
         </div>
     )

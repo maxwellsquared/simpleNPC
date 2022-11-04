@@ -32,6 +32,7 @@ const firestore = firebase.firestore();
 
 function App() {
   const [user] = useAuthState(auth);
+
   
   return (
     <div className="App">
@@ -46,7 +47,6 @@ function App() {
     </div>
   );
 }
-
 function SignIn() {
   const signInWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
