@@ -19,14 +19,20 @@ function App() {
     <div className="App">
       <CharProvider>
         <header>
-          <h1>simpleNPC ok</h1>
+          <h1>simpleNPC</h1>
         </header>
         <section>
           <Description />
           {/* <p>{wordPicker(maleNames, 1)} {wordPicker(lastNames, 1)} is a {wordPicker(desc1, 1)} {wordPicker(species, 1)} {wordPicker(charJob, 1)}.</p> */}
           <StatBlock />
-          <Inventory />
+        </section>
+        <section>
+          <div className='bottom'>
+            <Inventory />
+          </div>
+          <div>
           <Secrets />
+          </div>
         </section>
       </CharProvider>
     </div>

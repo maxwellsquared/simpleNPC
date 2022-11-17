@@ -1,16 +1,24 @@
 :root {
-  --main-font-colour: gold;
+  --main-font-colour: rgb(249, 250, 197);
 }
 
+#root {
+  margin: 0 auto;
+}
+
+
 body {
-  color: gold;
-  background-color: #5c3422;
+  background-color: #183f22;
+  margin-top: 15vh;
+  display: flex;
 }
 
 .App {
   text-align: center;
-  margin: 0 auto;
-  background-color: rgb(31, 34, 38);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  /* background-color: rgb(31, 34, 38); */
 
 }
 
@@ -25,29 +33,38 @@ body {
   align-items: center;
   justify-content: space-between;
   z-index: 99;
-  padding: 10px;
+  /* padding: 10px; */
   box-sizing: border-box;
-  margin-left: 10vw;
+  /* margin-left: 10vw; */
+  margin-left: auto;
 }
 
 h1 {
-  
-font-family: metalista-web, serif;
-font-size: 4rem;
+  font-family: metalista-web, serif;
+  font-size: 4rem;
+  color: var(--main-font-colour);
+  text-align: left;
+}
 
+h2 {
+  text-align: left;
+  margin-bottom: -4px;
+}
+
+h3 {
+  text-align: left;
+  border-bottom: 4px double var(--main-font-colour);
 }
 
 .App section {
   display: flex;
-  flex-direction: column;
-  margin-top: 10vh;
-  justify-content: flex-start;
-  min-height: 100vh;
+  margin: 10vh 15vw 0;
+  color: var(--main-font-colour);
+  align-content: flex-start
 }
 
 .App section p {
   display: flex;
-  margin-left: 10vw;
   align-content: flex-start;
 }
 
@@ -76,35 +93,56 @@ main::-webkit-scrollbar-thumb {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-left: 20vw;
-  margin-right: 20vw;
-  margin-top: 20vh;
+  margin-left: 2vw;
+  margin-right: 2vw;
 }
 
 .attr-container {
   color: var(--main-font-colour);
+  margin: 0 2vw 0;
 }
 
 
 ul, li {
   text-align: left;
   list-style: none;
+  padding: inherit;
 }
 
-p {
+/* p {
   max-width: 500px;
-  margin-bottom: 12px;
+  margin: 15px 0px 25px;
   line-height: 24px;
-  padding: 10px 20px;
+  padding: 0px;
   border-radius: 25px;
   position: relative;
   color: var(--main-font-colour);
   text-align: center;
-}
+} */
 
 img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin: 2px 5px;
+}
+
+.bottom {
+  margin-right: 5vw;
+}
+
+/* smol */
+@media only screen and (max-width: 1000px) {
+  section {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+/* lorge */
+@media only screen and (min-width: 1001px) {
+  section {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 }
