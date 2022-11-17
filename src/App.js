@@ -1,25 +1,34 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, createContext, useContext } from 'react';
 import {faker } from '@faker-js/faker';
 import './App.css';
 
 import { StatBlock } from "./components/StatBlock";
-import { Portrait } from './components/Portrait';
+import { CharProvider } from './components/CharContext';
+import { Description } from './components/Description';
+import { Inventory } from './components/Inventory';
+import { Secrets } from './components/Secrets';
 
 import { wordPicker } from './helpers/wordPicker';
 import { maleNames, femaleNames, nbNames, lastNames, desc1, species, charJob } from "./helpers/arrays";
+
+// const CharContext = createContext();
 
 function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1>simpleNPC</h1>
-      </header>
-      <section>
-        {/* <Portrait /> */}
-        <p>{wordPicker(maleNames, 1)} {wordPicker(lastNames, 1)} is a {wordPicker(desc1, 1)} {wordPicker(species, 1)} {wordPicker(charJob, 1)}.</p>
-        <StatBlock />
+      <CharProvider>
+        <header>
+          <h1>simpleNPC ok</h1>
+        </header>
+        <section>
+          <Description />
+          {/* <p>{wordPicker(maleNames, 1)} {wordPicker(lastNames, 1)} is a {wordPicker(desc1, 1)} {wordPicker(species, 1)} {wordPicker(charJob, 1)}.</p> */}
+          <StatBlock />
+          <Inventory />
+          <Secrets />
         </section>
+      </CharProvider>
     </div>
   );
 }

@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Attribute } from './Attribute';
 
 export function StatBlock() {
-
     return (
 
         <div className='statblock'>

@@ -1,9 +1,10 @@
 :root {
-  --main-font-colour: rgb(238, 240, 209);
+  --main-font-colour: gold;
 }
 
 body {
-  background-color: #282c34;
+  color: gold;
+  background-color: #5c3422;
 }
 
 .App {
