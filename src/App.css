@@ -8,7 +8,7 @@
 
 
 body {
-  background-color: #183f22;
+  background-color: #0b1e10;
   margin-top: 15vh;
   display: flex;
 }
@@ -54,6 +54,12 @@ h2 {
 h3 {
   text-align: left;
   border-bottom: 4px double var(--main-font-colour);
+}
+
+h4 {
+  text-align: left;
+  border-bottom: 4px double var(--main-font-colour);
+  text-transform: uppercase;
 }
 
 .App section {
@@ -129,6 +135,11 @@ img {
 
 .bottom {
   margin-right: 5vw;
+}
+
+button {
+  max-width: 200px;
+  margin: auto;
 }
 
 /* smol */

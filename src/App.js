@@ -15,6 +15,10 @@ import { maleNames, femaleNames, nbNames, lastNames, desc1, species, charJob } f
 
 function App() {
 
+  const newNPC = function() {
+    window.location.reload();
+  }
+
   return (
     <div className="App">
       <CharProvider>
@@ -34,7 +38,10 @@ function App() {
           <Secrets />
           </div>
         </section>
+        <button onClick={newNPC
+}>this npc sucks gimme a new one</button>
       </CharProvider>
+
     </div>
   );
 }

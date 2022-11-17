@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-const d6 = function() {
-    return Math.floor(Math.random() * 6);
+export const d6 = function() {
+    return 1 + Math.floor(Math.random() * 6);
 }
 
 const rollScore = function() {

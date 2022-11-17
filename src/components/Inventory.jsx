@@ -7,9 +7,10 @@ export function Inventory() {
     return (
         <div className='inventory-container'>
             <h3>Inventory</h3>
-            <ul>
+            <p>{myChar.inventory}</p>
+            {/* <ul>
                 {myChar.inventory.map((elem, i) => <li key={i}>{elem}</li>)}
-            </ul>
+            </ul> */}
         </div>
     )
 }

@@ -7,7 +7,7 @@ export function Description() {
     return (
         <div className="description-container">
             <h2>{myChar.name}</h2>
-            <h3>{myChar.gender} {myChar.ancestry} {myChar.job}</h3>
+            <h4>{myChar.gender} {myChar.ancestry} {myChar.job}</h4>
             <p>{myChar.description}</p>
         </div>
     )

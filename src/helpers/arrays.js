@@ -1,4 +1,5 @@
 import { wordPicker } from './wordPicker';
+import { d6 } from '../components/Attribute';
 
 export const maleNames = [
   'Karl',
@@ -293,3 +294,20 @@ export const rumors = [
   `the ${wordPicker(charJob, 1)} sells magic items looted from the bodies of dead adventurers`,
   `a local shopkeep will buy and sell stolen goods`,
 ];
+
+export const items = [
+  `${4 * d6()} copper pieces`,
+  `${2 * d6()} silver pieces`,
+  `a rotten sandwich`,
+  `a smooth grey stone from the river`,
+  `a rusty dagger`,
+  `a dried hunk of cheese`,
+  `a healing potion`,
+  `a dull red gem`,
+  `a wooden shield`,
+  `a sinister mask`,
+  `a key on a silver chain`,
+  `a rabbit's foot`,
+  `a severed ear`,
+  `a lock of hair`,
+]
