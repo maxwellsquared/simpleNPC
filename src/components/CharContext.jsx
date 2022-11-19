@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { d6 } from "./Attribute";
 import { wordPicker } from '../helpers/wordPicker';
-import { maleNames, femaleNames, nbNames, lastNames, desc1, desc2, desc3, species, charJob, items } from "../helpers/arrays";
+import { maleNames, femaleNames, nbNames, lastNames, desc1, desc2, desc3, species, charJob, items, locations, monsters, secrets, rumours } from "../helpers/arrays";
 
 const getGender = function() {
     let i = Math.random();
@@ -22,12 +22,26 @@ const getDesc = function() {
     return (capFirstLetter(wordPicker(desc2, 1)) + ". " + capFirstLetter(wordPicker(desc3, 1)) + ".");
 }
 
+const getSecret = function() {
+    let i = Math.random();
+    if (i < 0.3) return (wordPicker(secrets, 1));
+    return null;
+}
+
+const getRumour = function() {
+    let i = Math.random();
+    if (i < 0.7) return (wordPicker(rumours, 1));
+    return null;
+}
+
 
 const CharContext = React.createContext([{}, () => {}]);
 
 function CharProvider(props) {
     const [gender, setGender] = useState(getGender());
     const [desc, setDesc] = useState(getDesc());
+    const [secret, setSecret] = useState(getSecret());
+    const [rumour, setRumour] = useState(getRumour());
     const [state, setState] = useState({
         name: ((gender === "male" ? wordPicker(maleNames, 1) : wordPicker(femaleNames, 1)) + " " + wordPicker(lastNames, 1)),
         gender: gender,
@@ -35,8 +49,8 @@ function CharProvider(props) {
         job: wordPicker(charJob, 1),
         description: desc,
         inventory: wordPicker(items, (d6() + 2)),
-        secret: null,
-        rumour: "Elves kidnapped the shoemaker's baby!"
+        secret: secret,
+        rumour: rumour
       });
     return (
         <CharContext.Provider value={[state, setState]}>

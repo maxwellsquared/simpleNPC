@@ -7,9 +7,11 @@ export function Secrets() {
     return (
         <div className="secrets-container">
             <h4>Secrets and Rumours</h4>
-            { myChar.secret ? <p>{myChar.name} has a secret: {myChar.secret}</p> : <p>{myChar.name} doesn't know anything juicy.</p>}
+            {(!myChar.secret && !myChar.rumour) ? <p>{myChar.name} doesn't know anything juicy.</p> : <></>}
 
-            { myChar.rumour ? <p>{myChar.name} knows a rumour: {myChar.rumour}</p> : <p>{myChar.name} doesn't know anything juicy.</p>}
+            { myChar.secret ? <p className='secret-text'>{myChar.name} {myChar.secret}!</p> : <></>}
+
+            { myChar.rumour ? <p>{myChar.name} knows a rumour: {myChar.rumour}.</p> : <></>}
             
         </div>
     )

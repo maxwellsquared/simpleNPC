@@ -1,5 +1,6 @@
 :root {
   --main-font-colour: rgb(249, 250, 197);
+  --bg-colour: #0b1e10;
 }
 
 #root {
@@ -8,7 +9,7 @@
 
 
 body {
-  background-color: #0b1e10;
+  background-color: var(--bg-colour);
   margin-top: 15vh;
   display: flex;
 }
@@ -69,6 +70,7 @@ h4 {
   font-family: mrs-eaves-roman-small-caps, serif;
   text-align: left;
   border-bottom: 4px double var(--main-font-colour);
+  font-size: 1.8rem;
 }
 
 h5 {
@@ -76,7 +78,15 @@ h5 {
   text-align: left;
   border-bottom: 4px double var(--main-font-colour);
   margin-top: 5px;
+  font-size: 1.2rem;
   /* text-transform: uppercase; */
+}
+
+header h5 {
+  border: none;
+  margin-right: 5vw;
+  margin-top: 4vh;
+  line-height: 80%;
 }
 
 h5::first-letter {
@@ -85,7 +95,9 @@ h5::first-letter {
 
 .App section {
   display: flex;
-  margin: 10vh 15vw 0;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  margin-bottom: 0;
   color: var(--main-font-colour);
   align-content: flex-start
 }
@@ -95,6 +107,7 @@ h5::first-letter {
   font-size: 1.2rem;
   display: flex;
   align-content: flex-start;
+  text-align: left;
 }
 
 
@@ -141,14 +154,46 @@ img {
   margin-right: 5vw;
 }
 
+.secret-text {
+  color: red;
+}
+
 button {
   max-width: 200px;
-  margin: auto;
+  margin: 5vh auto 5vh;
+  font-family: modesto-condensed, serif;
+  font-size: 1.8rem;
+  padding: 10px 20px 10px;
+  background-color: var(--main-font-colour);
+  color: var(--bg-colour);
+  transition-duration: 0.4s;
+  border: none;
+  border-radius: 5px;
+
+}
+
+button:hover {
+  box-shadow: 0px -2px 31px -5px var(--main-font-colour);
+  -webkit-box-shadow: 0px -2px 31px -5px var(--main-font-colour);
+  -moz-box-shadow: 0px -2px 31px -5px var(--main-font-colour);
+}
+
+button:active {
+  opacity: 0.4;
+  // transform: translateY(0.5vh);
+  animation: shake 0.2s;
 }
 
 footer {
-  margin-top: 5vh;
+  // position: absolute;
+  display: none;
+  bottom: 2vh;
+  margin: auto;
   color: var(--main-font-colour);
+  font-size: 0.8rem;
+  opacity: 0.5;
+  text-align: center;
+  width: 100%;
 }
 
 /* smol */
@@ -156,6 +201,7 @@ footer {
   section {
     flex-direction: column;
     justify-content: flex-start;
+    margin-top: 2vh;
   }
 }
 
@@ -164,6 +210,28 @@ footer {
   section {
     flex-direction: row;
     justify-content: flex-start;
+    margin-top: 10vh;
   }
 }
 
+@keyframes shake {
+  0% {
+    transform: none;
+  }
+  30% {
+    transform: translateX(-5px) translateY(5px);
+  }
+  50% {
+    transform: translateX(5px) translateY(-5px) rotate(2deg);
+  }
+  80% {
+    transform: translateX(-4px) translateY(3px);
+  }
+  90% {
+    transform: translateX(2px) translateY(-2px);
+  }
+  100% {
+    transform: none;
+  }
+  
+}

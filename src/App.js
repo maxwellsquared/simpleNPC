@@ -1,6 +1,6 @@
 import React, { useState, useRef, createContext, useContext } from 'react';
 import {faker } from '@faker-js/faker';
-import './App.css';
+import './App.scss';
 
 import { StatBlock } from "./components/StatBlock";
 import { CharProvider } from './components/CharContext';
@@ -21,6 +21,7 @@ function App() {
       <CharProvider>
         <header>
           <h1>SimpleNPC</h1>
+          <h5>Made by <a href="https://www.maxkuhn.ca">Max</a>.</h5>
         </header>
         <section>
           <Description />
@@ -36,9 +37,9 @@ function App() {
           </div>
         </section>
         <button onClick={newNPC
-}>gimme a different one!</button>
+}>Get a new NPC</button>
       </CharProvider>
-      <footer>done by <a href="https://www.maxkuhn.ca">max</a>. not affiliated with any third party. all stuff is property of the people who own the stuff. don't sue me; i don't have any money. </footer>
+      <footer><em>Made by <a href="https://www.maxkuhn.ca">Max</a>. Not affiliated with any third party. All trademarks are property of their respective owners. Don't sue me; I don't have any money. </em></footer>
 
     </div>
   );

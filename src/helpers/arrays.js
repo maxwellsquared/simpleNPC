@@ -254,26 +254,26 @@ export const monsters = [
 ];
 
 export const locations = [
-  "caves",
+  "cave",
   "dungeon",
   "forest",
   "local bigwig's house",
   "old church",
   "ruined castle",
   "ruined temple",
-  "sewers",
+  "sewer",
 ];
 
-export const charSecret = [
-  'an assassin sent after the party',
-  'an assassin targeting an important NPC',
+export const secrets = [
+  'is an assassin sent after the party',
+  'is an assassin targeting an important NPC',
   'belongs to a cult that meets in the ' + wordPicker(locations, 1),
   'hides a fortune in jewels in the ' + wordPicker(locations, 1),
   'will attempt to poison someone',
-  'plotting with ' + wordPicker(monsters, 1),
+  'is plotting with ' + wordPicker(monsters, 1),
 ]
 
-export const rumors = [
+export const rumours = [
   `the local ${wordPicker(charJob, 1)} is an assassin`,
   `the local ${wordPicker(charJob, 1)} is having a secret love affair`,
   `the ${wordPicker(charJob, 1)} is in league with ${wordPicker(monsters, 1)}`,
