@@ -19,7 +19,6 @@ body {
   display: flex;
   flex-direction: column;
   /* background-color: rgb(31, 34, 38); */
-
 }
 
 .App header {
@@ -40,26 +39,48 @@ body {
 }
 
 h1 {
-  font-family: metalista-web, serif;
+  margin-left: 150px;
+  font-family: modesto-condensed, serif;
   font-size: 4rem;
   color: var(--main-font-colour);
   text-align: left;
 }
 
 h2 {
+  font-family: mrs-eaves-roman-small-caps, serif;
+  font-size: 3rem;
   text-align: left;
   margin-bottom: -4px;
+  line-height: 75%;
 }
 
 h3 {
+  font-family: ff-scala-sans-pro, sans-serif;
   text-align: left;
   border-bottom: 4px double var(--main-font-colour);
 }
 
+.ability-score {
+  font-family: ff-scala-sans-pro, sans-serif;
+  font-size: 1.4rem;
+}
+
 h4 {
+  font-family: mrs-eaves-roman-small-caps, serif;
   text-align: left;
   border-bottom: 4px double var(--main-font-colour);
-  text-transform: uppercase;
+}
+
+h5 {
+  font-family: bookmania, serif;
+  text-align: left;
+  border-bottom: 4px double var(--main-font-colour);
+  margin-top: 5px;
+  /* text-transform: uppercase; */
+}
+
+h5::first-letter {
+  text-transform:capitalize;
 }
 
 .App section {
@@ -70,9 +91,12 @@ h4 {
 }
 
 .App section p {
+  font-family: bookmania, serif;
+  font-size: 1.2rem;
   display: flex;
   align-content: flex-start;
 }
+
 
 main {
   padding: 10px;
@@ -83,17 +107,6 @@ main {
   flex-direction: column;
 }
 
-main::-webkit-scrollbar {
-  width: 0.25rem;
-}
-
-main::-webkit-scrollbar-track {
-  background: #1e1e24;
-}
-
-main::-webkit-scrollbar-thumb {
-  background: #6649b8;
-}
 
 .statblock {
   display: flex;
@@ -115,16 +128,7 @@ ul, li {
   padding: inherit;
 }
 
-/* p {
-  max-width: 500px;
-  margin: 15px 0px 25px;
-  line-height: 24px;
-  padding: 0px;
-  border-radius: 25px;
-  position: relative;
-  color: var(--main-font-colour);
-  text-align: center;
-} */
+
 
 img {
   width: 40px;
@@ -142,6 +146,11 @@ button {
   margin: auto;
 }
 
+footer {
+  margin-top: 5vh;
+  color: var(--main-font-colour);
+}
+
 /* smol */
 @media only screen and (max-width: 1000px) {
   section {
@@ -157,3 +166,4 @@ button {
     justify-content: flex-start;
   }
 }
+

@@ -28,7 +28,7 @@ export function Attribute(props) {
     return (
         <div className="attr-container">
             <div><h3>{props.attrType}</h3></div>
-            <div>{score} ({modifier})</div>
+            <div className="ability-score">{score} ({modifier})</div>
         </div>
     )
 }

@@ -6,7 +6,7 @@ export function Secrets() {
 
     return (
         <div className="secrets-container">
-            <h3>Secrets and Rumours</h3>
+            <h4>Secrets and Rumours</h4>
             { myChar.secret ? <p>{myChar.name} has a secret: {myChar.secret}</p> : <p>{myChar.name} doesn't know anything juicy.</p>}
 
             { myChar.rumour ? <p>{myChar.name} knows a rumour: {myChar.rumour}</p> : <p>{myChar.name} doesn't know anything juicy.</p>}

@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <CharProvider>
         <header>
-          <h1>simpleNPC</h1>
+          <h1>SimpleNPC</h1>
         </header>
         <section>
           <Description />
@@ -36,8 +36,9 @@ function App() {
           </div>
         </section>
         <button onClick={newNPC
-}>gimme a new one!</button>
+}>gimme a different one!</button>
       </CharProvider>
+      <footer>done by <a href="https://www.maxkuhn.ca">max</a>. not affiliated with any third party. all stuff is property of the people who own the stuff. don't sue me; i don't have any money. </footer>
 
     </div>
   );
