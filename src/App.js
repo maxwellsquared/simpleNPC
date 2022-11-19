@@ -8,9 +8,6 @@ import { Description } from './components/Description';
 import { Inventory } from './components/Inventory';
 import { Secrets } from './components/Secrets';
 
-import { wordPicker } from './helpers/wordPicker';
-import { maleNames, femaleNames, nbNames, lastNames, desc1, species, charJob } from "./helpers/arrays";
-
 // const CharContext = createContext();
 
 function App() {
@@ -39,7 +36,7 @@ function App() {
           </div>
         </section>
         <button onClick={newNPC
-}>this npc sucks gimme a new one</button>
+}>gimme a new one!</button>
       </CharProvider>
 
     </div>
