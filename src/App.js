@@ -37,7 +37,7 @@ function App() {
           </div>
         </section>
         <button onClick={newNPC
-}>Get a new NPC</button>
+}>Get a New NPC</button>
       </CharProvider>
       <footer><em>Made by <a href="https://www.maxkuhn.ca">Max</a>. Not affiliated with any third party. All trademarks are property of their respective owners. Don't sue me; I don't have any money. </em></footer>
 
