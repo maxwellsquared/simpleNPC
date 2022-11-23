@@ -10,7 +10,6 @@
 
 body {
   background-color: var(--bg-colour);
-  margin-top: 15vh;
   display: flex;
 }
 
@@ -26,7 +25,7 @@ body {
   height: 10vh;
   min-height: 50px;
   color: var(--main-font-colour);
-  position: fixed;
+  // position: fixed;
   width: 100%;
   top: 0;
   display: flex;
@@ -39,8 +38,12 @@ body {
   margin-left: auto;
 }
 
+#credits {
+  margin-right: 5vw;
+}
+
 h1 {
-  margin-left: 150px;
+  margin-left: 15vw;
   font-family: modesto-condensed, serif;
   font-size: 4rem;
   color: var(--main-font-colour);

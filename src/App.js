@@ -21,7 +21,9 @@ function App() {
       <CharProvider>
         <header>
           <h1>SimpleNPC</h1>
-          <h5>Made by <a href="https://www.maxkuhn.ca">Max</a>.</h5>
+          <div id="credits">
+            <h5>Made by <a href="https://www.maxkuhn.ca">Max</a>.</h5>
+          </div>
         </header>
         <section>
           <Description />
